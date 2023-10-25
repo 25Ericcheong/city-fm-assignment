@@ -1,14 +1,18 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CityFm.Controllers;
 
 [ApiController]
-[Route("/api/[controller]")]
+[EnableCors("CorsPolicy")]
+[Route("/api/products")]
 public class ProductsController : ControllerBase
 {
-    [HttpGet(Name = "GetWeatherForecast")]
-    public void Get()
+    [HttpGet]
+    [EnableCors("CorsPolicy")]
+    public string Get()
     {
         Console.WriteLine("Api-triggered");
+        return "somthing";
     }
 }
