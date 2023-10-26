@@ -1,3 +1,4 @@
+using CityFm.Domain;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,19 @@ public class ProductsController : ControllerBase
 {
     [HttpGet]
     [EnableCors("CorsPolicy")]
-    public string Get()
+    public IActionResult GetProducts()
     {
         Console.WriteLine("Api-triggered");
-        return "somthing";
+
+        var test = new Product
+        {
+            ProductId = "1",
+            Name = "eric",
+            Description = "test test",
+            UnitPrice = 11.11,
+            MaximumQuantity = null
+        };
+
+        return new JsonResult(test);
     }
 }
