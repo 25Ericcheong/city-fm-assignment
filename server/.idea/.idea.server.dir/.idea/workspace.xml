@@ -9,13 +9,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7ccf562-790f-4ee0-90ea-e9e73592cc54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/setupTests.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.server.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.server.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CityFm/Controllers/ProductsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Microsoft.OpenApi.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/CityFm.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/CityFm.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/CityFm.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.CopyComplete" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/apphost" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/ref/CityFm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/refint/CityFm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets/msbuild.build.CityFm.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.CityFm.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.CityFm.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityFm/obj/rider.project.restore.info" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +61,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/CityFm/Controllers/ProductsController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CityFm/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CityFm/Properties/launchSettings.json" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CityFm/appsettings.Development.json" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CityFm/appsettings.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CityFm/Controllers/ProductsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CityFm/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CityFm/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CityFm/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CityFm/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -40,27 +75,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/eric/projects/city-fm-assignment/server/CityFm/CityFm.csproj",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/eric/projects/city-fm-assignment/server/CityFm/CityFm.csproj&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/home/eric/.config/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
-      "/home/eric/.config/JetBrains/Rider2023.2/resharper-host/SourcesCache",
-      "/home/eric/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/home/eric/.config/JetBrains/Rider2023.2/resharper-host/DecompilerCache&quot;,
+      &quot;/home/eric/.config/JetBrains/Rider2023.2/resharper-host/SourcesCache&quot;,
+      &quot;/home/eric/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.CityFm: http">
     <configuration name="CityFm: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CityFm/CityFm.csproj" />
@@ -103,6 +138,10 @@
       <updated>1698141619930</updated>
       <workItem from="1698141621466" duration="1352000" />
       <workItem from="1698227822121" duration="704000" />
+      <workItem from="1698305591503" duration="96000" />
+      <workItem from="1698305705048" duration="6000" />
+      <workItem from="1698305721975" duration="8000" />
+      <workItem from="1698305744892" duration="10000" />
     </task>
     <servers />
   </component>
@@ -111,5 +150,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/CityFm/Controllers/ProductsController.cs</url>
+          <line>14</line>
+          <properties documentPath="$PROJECT_DIR$/CityFm/Controllers/ProductsController.cs" initialLine="14" containingFunctionPresentation="Method 'Get'">
+            <startOffsets>
+              <option value="299" />
+            </startOffsets>
+            <endOffsets>
+              <option value="334" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

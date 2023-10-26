@@ -10,7 +10,6 @@ namespace CityFm.Controllers;
 public class ProductsController : ControllerBase
 {
     [HttpGet]
-    [EnableCors("CorsPolicy")]
     public IActionResult GetProducts()
     {
         Console.WriteLine("Api-triggered");

@@ -10,7 +10,9 @@ function App() {
   useEffect(() => {
     fetch(routes.GET_PRODUCTS, {
       method: "GET",
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, []);
 
   return (
