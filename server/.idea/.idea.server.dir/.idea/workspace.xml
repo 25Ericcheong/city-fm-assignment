@@ -8,50 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7ccf562-790f-4ee0-90ea-e9e73592cc54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.server.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.server.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/CityFm.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Microsoft.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/bin/Debug/net7.0/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/CityFm.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/CityFm.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/CityFm.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/CityFm.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/apphost" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/ref/CityFm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/refint/CityFm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets/msbuild.build.CityFm.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.CityFm.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.CityFm.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/rider.project.model.nuget.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityFm/obj/rider.project.restore.info" beforeDir="false" />
-    </list>
+    <list default="true" id="f7ccf562-790f-4ee0-90ea-e9e73592cc54" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,6 +99,7 @@
       <workItem from="1698305705048" duration="6000" />
       <workItem from="1698305721975" duration="8000" />
       <workItem from="1698305744892" duration="10000" />
+      <workItem from="1698405178083" duration="108000" />
     </task>
     <servers />
   </component>

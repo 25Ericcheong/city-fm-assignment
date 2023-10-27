@@ -16,7 +16,7 @@ builder.Services.AddHttpClient("AllTheClouds", client =>
 {
     client.BaseAddress = new Uri("https://alltheclouds.com.au/api/");
     client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-    client.DefaultRequestHeaders.Add("api-key", "application/json");
+    client.DefaultRequestHeaders.Add("api-key", "API-UPEP55F2JPI3KHP");
 });
 
 builder.Services.AddCors(options =>
@@ -29,6 +29,7 @@ builder.Services.AddCors(options =>
             .AllowAnyOrigin();
     });
 });
+
 
 var app = builder.Build();
 
