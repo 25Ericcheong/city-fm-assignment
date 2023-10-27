@@ -1,10 +1,3 @@
-# server
-*.Development.json
-/bin
-/obj
-/.idea
-
-# client
 # dependencies
 /node_modules
 /.pnp
