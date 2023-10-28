@@ -13,6 +13,12 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+
+    fetch(routes.GET_FX_RATES, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, []);
 
   return (
