@@ -9,17 +9,17 @@ namespace CityFm.Controllers;
 [Route("/api/products")]
 public class ProductsController : ControllerBase
 {
-    private readonly IProductService _productService;
+    private readonly IProductsService _productsService;
 
-    public ProductsController(IProductService productService)
+    public ProductsController(IProductsService productsService)
     {
-        _productService = productService;
+        _productsService = productsService;
     }
 
     [HttpGet]
     public async Task<JsonResult> GetProducts()
     {
-        var products = await _productService.GetProducts();
+        var products = await _productsService.GetProducts();
         return new JsonResult(products);
     }
 }

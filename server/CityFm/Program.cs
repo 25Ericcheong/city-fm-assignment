@@ -14,14 +14,15 @@ builder.Services
     .AddJsonOptions(options => { options.JsonSerializerOptions.PropertyNamingPolicy = null; });
 
 
-builder.Services.AddHttpClient(ClientKeys.AllTheCloudsProduct, client =>
+builder.Services.AddHttpClient(ClientKeys.AllTheCloudsProductFxRate, client =>
 {
     client.BaseAddress = new Uri(ExternalUri.AllTheClouds);
     client.DefaultRequestHeaders.Add("accept", ContentType.Json);
     client.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
 });
 
-builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<IProductsService, ProductsService>();
+builder.Services.AddTransient<IFxRatesService, FxRatesService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
