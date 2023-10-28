@@ -1,16 +1,26 @@
 using CityFm.Exceptions;
 using CityFm.Models.Config;
 using CityFm.Models.Static;
+using CityFm.Models.Static.Http;
 using CityFm.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var settings = builder.Configuration.GetSection(AppSettingKeys.Settings).Get<AppSettings>();
 
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("Settings"));
+if (settings is null) throw new NullReferenceException("AppSettings cannot be found");
+
 builder.Services
     .AddControllers(options => { options.Filters.Add(typeof(GeneralExceptionFilter), 1); })
     .AddJsonOptions(options => { options.JsonSerializerOptions.PropertyNamingPolicy = null; });
 
-builder.Services.AddHttpClient();
+
+builder.Services.AddHttpClient(ClientKeys.AllTheCloudsProduct, client =>
+{
+    client.BaseAddress = new Uri(ExternalUri.AllTheClouds);
+    client.DefaultRequestHeaders.Add("accept", ContentType.Json);
+    client.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
+});
+
 builder.Services.AddTransient<IProductService, ProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -20,7 +30,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(Policy.AllowCors, policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins(settings.Urls.ClientUrl)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowAnyOrigin();

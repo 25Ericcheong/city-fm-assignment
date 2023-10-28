@@ -21,7 +21,7 @@ public class GeneralExceptionFilter : IExceptionFilter
         if (!context.ExceptionHandled)
         {
             error.StatusCode = StatusCodes.Status500InternalServerError;
-            error.Message = "An unexpected error has been found";
+            error.Message = $"An unexpected error has been found: {context.Exception.Message}";
 
             context.Result = new JsonResult(error);
             context.ExceptionHandled = true;
