@@ -1,4 +1,4 @@
 *.Development.json
-/bin
-/obj
-/.idea
+bin/
+obj/
+idea/

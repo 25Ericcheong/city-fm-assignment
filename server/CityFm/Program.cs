@@ -1,13 +1,17 @@
+using CityFm.Exceptions;
+using CityFm.Models.Config;
+using CityFm.Models.Static;
+using CityFm.Services;
 using Microsoft.Net.Http.Headers;
-
-const string allowCorsPolicy = "CorsPolicy";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.PropertyNamingPolicy = null;
-});
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("Settings"));
+builder.Services
+    .AddControllers(options => { options.Filters.Add(typeof(GeneralExceptionFilter), 1); })
+    .AddJsonOptions(options => { options.JsonSerializerOptions.PropertyNamingPolicy = null; });
+
+builder.Services.AddHttpClient<ProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,7 +25,7 @@ builder.Services.AddHttpClient("AllTheClouds", client =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(allowCorsPolicy, policy =>
+    options.AddPolicy(Policy.AllowCors, policy =>
     {
         policy.WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
@@ -40,7 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(allowCorsPolicy);
+app.UseCors(Policy.AllowCors);
 
 app.UseAuthorization();
 

@@ -1,4 +1,4 @@
-using CityFm.Domain;
+using CityFm.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,20 +9,17 @@ namespace CityFm.Controllers;
 [Route("/api/products")]
 public class ProductsController : ControllerBase
 {
-    [HttpGet]
-    public IActionResult GetProducts()
+    private readonly ProductService _productService;
+
+    public ProductsController(ProductService productService)
     {
-        Console.WriteLine("Api-triggered");
+        _productService = productService;
+    }
 
-        var test = new Product
-        {
-            ProductId = "1",
-            Name = "eric",
-            Description = "test test",
-            UnitPrice = 11.11,
-            MaximumQuantity = null
-        };
-
-        return new JsonResult(test);
+    [HttpGet]
+    public async Task<JsonResult> GetProducts()
+    {
+        var products = await _productService.GetProducts();
+        return new JsonResult(products);
     }
 }

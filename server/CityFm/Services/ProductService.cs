@@ -1,13 +1,26 @@
+using CityFm.Domain;
+using CityFm.Models.Config;
+using CityFm.Models.Static.Http;
+using Microsoft.Extensions.Options;
+
 namespace CityFm.Services;
 
 public class ProductService
 {
-    private readonly IConfiguration _config;
-    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly HttpClient _httpClient;
 
-    public ProductService(IHttpClientFactory httpClientFactory, IConfiguration config)
+    public ProductService(HttpClient httpClient, IOptions<AppSettings> options)
     {
-        _httpClientFactory = httpClientFactory;
-        _config = config;
+        _httpClient = httpClient;
+        var settings = options.Value;
+
+        _httpClient.BaseAddress = new Uri(ExternalUri.AllTheClouds);
+        _httpClient.DefaultRequestHeaders.Add("accept", ContentType.Json);
+        _httpClient.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
+    }
+
+    public async Task<List<Product>?> GetProducts()
+    {
+        return await _httpClient.GetFromJsonAsync<List<Product>>(ExternalUri.AllTheCloudsProducts);
     }
 }
