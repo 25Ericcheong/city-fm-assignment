@@ -5,22 +5,24 @@ using Microsoft.Extensions.Options;
 
 namespace CityFm.Services;
 
-public class ProductService
+public class ProductService : IProductService
 {
-    private readonly HttpClient _httpClient;
+    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly AppSettings _settings;
 
-    public ProductService(HttpClient httpClient, IOptions<AppSettings> options)
+    public ProductService(IOptions<AppSettings> options, IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClient;
-        var settings = options.Value;
-
-        _httpClient.BaseAddress = new Uri(ExternalUri.AllTheClouds);
-        _httpClient.DefaultRequestHeaders.Add("accept", ContentType.Json);
-        _httpClient.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
+        _httpClientFactory = httpClientFactory;
+        _settings = options.Value;
     }
 
     public async Task<List<Product>?> GetProducts()
     {
-        return await _httpClient.GetFromJsonAsync<List<Product>>(ExternalUri.AllTheCloudsProducts);
+        var httpClient = _httpClientFactory.CreateClient();
+        httpClient.BaseAddress = new Uri(ExternalUri.AllTheClouds);
+        httpClient.DefaultRequestHeaders.Add("accept", ContentType.Json);
+        httpClient.DefaultRequestHeaders.Add("api-key", _settings.AllTheClouds.ApiKey);
+
+        return await httpClient.GetFromJsonAsync<List<Product>>(ExternalUri.AllTheCloudsProducts);
     }
 }

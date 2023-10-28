@@ -2,7 +2,6 @@ using CityFm.Exceptions;
 using CityFm.Models.Config;
 using CityFm.Models.Static;
 using CityFm.Services;
-using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,17 +10,11 @@ builder.Services
     .AddControllers(options => { options.Filters.Add(typeof(GeneralExceptionFilter), 1); })
     .AddJsonOptions(options => { options.JsonSerializerOptions.PropertyNamingPolicy = null; });
 
-builder.Services.AddHttpClient<ProductService>();
+builder.Services.AddHttpClient();
+builder.Services.AddTransient<IProductService, ProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddHttpClient("AllTheClouds", client =>
-{
-    client.BaseAddress = new Uri("https://alltheclouds.com.au/api/");
-    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-    client.DefaultRequestHeaders.Add("api-key", "API-UPEP55F2JPI3KHP");
-});
 
 builder.Services.AddCors(options =>
 {
