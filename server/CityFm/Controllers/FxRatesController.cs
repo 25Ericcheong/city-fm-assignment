@@ -6,6 +6,7 @@ namespace CityFm.Controllers;
 
 [ApiController]
 [EnableCors("CorsPolicy")]
+[Produces("application/json")]
 [Route("/api/fx-rates")]
 public class FxRatesController : ControllerBase
 {
@@ -17,9 +18,10 @@ public class FxRatesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<JsonResult> GetFxRates()
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetFxRates()
     {
         var fxRates = await _fxRatesService.GetFxRates();
-        return new JsonResult(fxRates);
+        return Ok(fxRates);
     }
 }

@@ -17,6 +17,10 @@ public class FxRatesService : IFxRatesService
     public async Task<List<FxRate>?> GetFxRates()
     {
         var httpClient = _httpClientFactory.CreateClient(ClientKeys.AllTheCloudsProductFxRate);
-        return await httpClient.GetFromJsonAsync<List<FxRate>>(ExternalUri.AllTheCloudsFxRates);
+        var response = await httpClient.GetAsync(ExternalUri.AllTheCloudsFxRates);
+
+        if (!response.IsSuccessStatusCode) return new List<FxRate>();
+
+        return await response.Content.ReadFromJsonAsync<List<FxRate>>();
     }
 }

@@ -1,3 +1,4 @@
+using CityFm.Models.Request.Order;
 using CityFm.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -6,22 +7,20 @@ namespace CityFm.Controllers;
 
 [ApiController]
 [EnableCors("CorsPolicy")]
-[Produces("application/json")]
-[Route("/api/products")]
-public class ProductsController : ControllerBase
+[Route("/api/orders")]
+public class OrdersController : ControllerBase
 {
     private readonly IProductsService _productsService;
 
-    public ProductsController(IProductsService productsService)
+    public OrdersController(IProductsService productsService)
     {
         _productsService = productsService;
     }
 
-    [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetProducts()
+    [HttpPost]
+    public async Task<HttpResponseMessage> CreateOrders([FromBody] OrderDTO order)
     {
         var products = await _productsService.GetProducts();
-        return Ok(products);
+        return new HttpResponseMessage();
     }
 }

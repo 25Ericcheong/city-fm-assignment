@@ -1,6 +1,6 @@
 namespace CityFm.Models.Request.Order;
 
-public class OrderItem
+public class OrderItemDTO
 {
     public string ProductId { get; set; }
 

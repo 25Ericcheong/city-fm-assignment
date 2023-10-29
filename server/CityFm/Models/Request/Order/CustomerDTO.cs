@@ -1,6 +1,6 @@
 namespace CityFm.Models.Request.Order;
 
-public class Customer
+public class CustomerDTO
 {
     public string Name { get; set; }
 

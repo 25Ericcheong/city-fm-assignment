@@ -1,4 +1,3 @@
-using System.Text.Json;
 using CityFm.Domain;
 using CityFm.Models.Static.Http;
 
@@ -21,8 +20,7 @@ public class ProductsService : IProductsService
 
         if (!response.IsSuccessStatusCode) return new List<Product>();
 
-        await using var content = await response.Content.ReadAsStreamAsync();
-        var products = await JsonSerializer.DeserializeAsync<List<Product>>(content);
+        var products = await response.Content.ReadFromJsonAsync<List<Product>>();
 
         return products?.Select(product =>
         {
