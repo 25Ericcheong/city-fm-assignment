@@ -1,6 +1,7 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace CityFm.Controllers;
 
-public class OrderController
+public class OrderController : ControllerBase
 {
-    
 }

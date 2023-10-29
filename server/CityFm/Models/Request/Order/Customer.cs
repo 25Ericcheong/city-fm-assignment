@@ -1,4 +1,4 @@
-namespace CityFm.Models.Request;
+namespace CityFm.Models.Request.Order;
 
 public class Customer
 {

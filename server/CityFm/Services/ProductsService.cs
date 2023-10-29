@@ -1,3 +1,4 @@
+using System.Text.Json;
 using CityFm.Domain;
 using CityFm.Models.Static.Http;
 
@@ -16,7 +17,12 @@ public class ProductsService : IProductsService
     public async Task<List<Product>?> GetProducts()
     {
         var httpClient = _httpClientFactory.CreateClient(ClientKeys.AllTheCloudsProductFxRate);
-        var products = await httpClient.GetFromJsonAsync<List<Product>>(ExternalUri.AllTheCloudsProducts);
+        var response = await httpClient.GetAsync(ExternalUri.AllTheCloudsProducts);
+
+        if (!response.IsSuccessStatusCode) return new List<Product>();
+
+        await using var content = await response.Content.ReadAsStreamAsync();
+        var products = await JsonSerializer.DeserializeAsync<List<Product>>(content);
 
         return products?.Select(product =>
         {
