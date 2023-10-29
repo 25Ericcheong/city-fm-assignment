@@ -9,10 +9,10 @@ public class GeneralExceptionFilter : IExceptionFilter
     {
         var error = new ErrorDetails();
 
-        if (context.Exception is ArgumentNullException)
+        if (context.Exception is ArgumentNullException or NullReferenceException)
         {
             error.StatusCode = StatusCodes.Status400BadRequest;
-            error.Message = "An unexpected empty data has been found";
+            error.Message = $"An unexpected empty data field has been found: {context.Exception.Message}";
 
             context.Result = new JsonResult(error);
             context.ExceptionHandled = true;
