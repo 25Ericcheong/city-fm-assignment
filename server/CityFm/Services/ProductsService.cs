@@ -5,8 +5,8 @@ namespace CityFm.Services;
 
 public class ProductsService : IProductsService
 {
+    private const double VendorMultiplier = 1.2;
     private readonly IHttpClientFactory _httpClientFactory;
-    private readonly double _vendorMultiplier = 1.2;
 
     public ProductsService(IHttpClientFactory httpClientFactory)
     {
@@ -24,7 +24,7 @@ public class ProductsService : IProductsService
 
         return products?.Select(product =>
         {
-            product.UnitPrice *= _vendorMultiplier;
+            product.UnitPrice *= VendorMultiplier;
 
             return product;
         }).ToList();

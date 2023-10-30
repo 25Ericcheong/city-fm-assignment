@@ -1,4 +1,6 @@
 using System.Text.RegularExpressions;
+using CityFm.Domain;
+using CityFm.Exceptions;
 using CityFm.Models.Request.Order;
 using CityFm.Services;
 using Microsoft.AspNetCore.Cors;
@@ -11,6 +13,8 @@ namespace CityFm.Controllers;
 [Route("/api/orders")]
 public class OrdersController : ControllerBase
 {
+    private const int MaximumProductQuantity = 2147483647;
+    private const int MinimumProductQuantity = 0;
     private readonly IProductsService _productsService;
 
     public OrdersController(IProductsService productsService)
@@ -25,6 +29,9 @@ public class OrdersController : ControllerBase
 
         var products = await _productsService.GetProducts();
 
+        if (products is null || products.Count == 0)
+            throw new ExternalApiException("Product list is empty. Please retry.");
+
         var customerData = order.Customer;
         var ordersData = order.Orders;
 
@@ -33,9 +40,32 @@ public class OrdersController : ControllerBase
         if (ordersData is null || ordersData.Length == 0) throw new ArgumentException("Order items are missing");
 
         ValidateCustomerData(customerData);
-
+        ValidateProductOrdersData(ordersData, products);
 
         return new HttpResponseMessage();
+    }
+
+    public void ValidateProductOrdersData(OrderItemDTO[] ordersRequest, List<Product> products)
+    {
+        if (ordersRequest.Length == 0) throw new ArgumentException("There should be at least 1 order");
+
+        var isQuantityBoundaryValid =
+            ordersRequest.All(o => o.Quantity > MinimumProductQuantity && o.Quantity <= MaximumProductQuantity);
+
+        if (!isQuantityBoundaryValid)
+            throw new ArgumentException("The number of quantities of product is not within valid boundary quantity");
+
+        var productIds = products.Select(p => p.ProductId);
+        var doesProductExist = ordersRequest.All(o => productIds.Contains(o.ProductId));
+        if (!doesProductExist) throw new ArgumentException("An invalid product ID has been provided.");
+
+        foreach (var productOrder in ordersRequest)
+        {
+            var productInformation = products.First(p => p.ProductId == productOrder.ProductId);
+            var isProductOrderCountOverMax = productOrder.Quantity > productInformation.MaximumQuantity;
+            if (isProductOrderCountOverMax)
+                throw new ArgumentException("Order quantity is over the available maximum limit of product available");
+        }
     }
 
     private void ValidateCustomerData(CustomerDTO customer)

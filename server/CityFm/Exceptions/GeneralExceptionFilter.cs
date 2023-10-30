@@ -9,13 +9,30 @@ public class GeneralExceptionFilter : IExceptionFilter
     {
         var error = new ErrorDetails();
 
-        if (context.Exception is ArgumentNullException or NullReferenceException)
+        switch (context.Exception)
         {
-            error.StatusCode = StatusCodes.Status400BadRequest;
-            error.Message = $"An unexpected empty data field has been found: {context.Exception.Message}";
+            case ExternalApiException:
+                error.StatusCode = StatusCodes.Status500InternalServerError;
+                error.Message = $"An internal service error has occurred: {context.Exception.Message}";
 
-            context.Result = new JsonResult(error);
-            context.ExceptionHandled = true;
+                context.Result = new JsonResult(error);
+                context.ExceptionHandled = true;
+                break;
+            case ArgumentException:
+                error.StatusCode = StatusCodes.Status400BadRequest;
+                error.Message = $"An error has occurred due to a client request: {context.Exception.Message}";
+
+                context.Result = new JsonResult(error);
+                context.ExceptionHandled = true;
+                break;
+
+            case ArgumentNullException or NullReferenceException:
+                error.StatusCode = StatusCodes.Status400BadRequest;
+                error.Message = $"An unexpected empty data field has been found: {context.Exception.Message}";
+
+                context.Result = new JsonResult(error);
+                context.ExceptionHandled = true;
+                break;
         }
 
         if (!context.ExceptionHandled)
