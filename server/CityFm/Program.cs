@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using CityFm.Exceptions;
 using CityFm.Models.Config;
 using CityFm.Models.Static;
@@ -17,15 +18,15 @@ builder.Services
 builder.Services.AddHttpClient(ClientKeys.AllTheCloudsProductFxRate, client =>
 {
     client.BaseAddress = new Uri(ExternalUri.AllTheClouds);
-    client.DefaultRequestHeaders.Add("accept", ContentType.Json);
+    client.DefaultRequestHeaders.Add("accept", MediaTypeNames.Application.Json);
     client.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
 });
 
 builder.Services.AddHttpClient(ClientKeys.AllTheCloudsOrder, client =>
 {
     client.BaseAddress = new Uri(ExternalUri.AllTheClouds);
-    client.DefaultRequestHeaders.Add("accept", ContentType.Json);
-    client.DefaultRequestHeaders.Add("Content-Type", ContentType.Json);
+    client.DefaultRequestHeaders.Add("accept", MediaTypeNames.Application.Json);
+    client.DefaultRequestHeaders.Add("Content-Type", MediaTypeNames.Application.Json);
     client.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
 });
 

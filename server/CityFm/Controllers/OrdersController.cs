@@ -62,7 +62,7 @@ public class OrdersController : ControllerBase
         return Ok();
     }
 
-    public void ValidateProductOrdersData(OrderItemDTO[] ordersRequest, List<Product> products)
+    private void ValidateProductOrdersData(OrderItemDTO[] ordersRequest, List<Product> products)
     {
         if (ordersRequest.Length == 0) throw new ArgumentException("There should be at least 1 order");
 
