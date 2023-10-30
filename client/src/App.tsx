@@ -50,13 +50,45 @@ function App() {
       .catch((e) => setError(e));
   }
 
+  function getSpecificRate(
+    rates: FxRate[],
+    sourceRate: Currency,
+    targetRate: Currency
+  ) {
+    return rateData?.find(
+      (r) => r.SourceCurrency === sourceRate && r.TargetCurrency === targetRate
+    );
+  }
+
+  function processFxRateData(respond: FxRate[]): FxRate[] {
+    const processed = [...respond];
+
+    processed.push({
+      SourceCurrency: Currency.GBP,
+      TargetCurrency: Currency.USD,
+      Rate:
+        (getSpecificRate(respond, Currency.GBP, Currency.AUD)?.Rate ?? 1) *
+        (getSpecificRate(respond, Currency.AUD, Currency.USD)?.Rate ?? 1),
+    });
+
+    processed.push({
+      SourceCurrency: Currency.USD,
+      TargetCurrency: Currency.GBP,
+      Rate:
+        (getSpecificRate(respond, Currency.USD, Currency.AUD)?.Rate ?? 1) *
+        (getSpecificRate(respond, Currency.AUD, Currency.GBP)?.Rate ?? 1),
+    });
+
+    return processed;
+  }
+
   function getFxRateData() {
     fetch(routes.GET_FX_RATES, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data: FxRate[]) => {
-        setRateData(data);
+        setRateData(processFxRateData(data));
         setRateDataLoading(false);
       })
       .finally(() => {
@@ -128,6 +160,9 @@ function App() {
     const rate = rateData?.find(
       (r) => r.SourceCurrency === sourceRate && r.TargetCurrency === targetRate
     );
+
+    if (rate === undefined) {
+    }
 
     if (rate === undefined) {
       throw Error("Rate data is not found. Please reload browser.");
