@@ -4,38 +4,157 @@ import { routes } from "./config";
 import { Currency } from "./Currency";
 
 interface Product {
+  Description: string;
   ProductId: string;
+  MaximumQuantity: number | undefined;
+  Name: string;
+  UnitPrice: number;
+}
+
+interface FxRate {
+  Rate: number;
+  SourceCurrency: Currency;
+  TargetCurrency: Currency;
 }
 
 function App() {
-  const [currency, setCurrency] = useState(Currency.AUD);
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [currentRate, setCurrentRate] = useState(Currency.AUD);
+  const [rateMultipler, setRateMultipler] = useState(1);
+  const [rateData, setRateData] = useState<FxRate[]>();
+  const [rateDataLoading, setRateDataLoading] = useState(false);
+  const [productData, setProductData] = useState<Product[]>([]);
+  const [productDataLoading, setProductDataLoading] = useState(false);
+  const [error, setError] = useState(undefined);
+  const [rateError, setRateError] = useState(undefined);
 
   useEffect(() => {
+    setProductDataLoading(true);
+    getProductData();
+
+    setRateDataLoading(true);
+    getFxRateData();
+  }, []);
+
+  function getProductData() {
     fetch(routes.GET_PRODUCTS, {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data: Product[]) => {
+        setProductData(data);
+        setProductDataLoading(false);
+      })
+      .finally(() => {
+        setProductDataLoading(false);
+      })
+      .catch((e) => setError(e));
+  }
 
+  function getFxRateData() {
     fetch(routes.GET_FX_RATES, {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
+      .then((data: FxRate[]) => {
+        setRateData(data);
+        setRateDataLoading(false);
+      })
+      .finally(() => {
+        setRateDataLoading(false);
+      })
+      .catch((e) => setRateError(e));
+  }
+
+  function renderProductData() {
+    if (error) {
+      <div>
+        <p>
+          An error has occurred while trying to acquire product data. Please
+          retry.
+        </p>
+      </div>;
+    }
+
+    if (productDataLoading) {
+      return (
+        <div>
+          <p>Product data is loading...</p>
+        </div>
+      );
+    }
+
+    if (productData.length === 0) {
+      return (
+        <div className="error">
+          <p>Product data is missing. Please retry.</p>
+          <button onClick={() => getProductData()}>Retry</button>
+        </div>
+      );
+    }
+
+    return productData.map((p) => {
+      return (
+        <div>
+          <h2>{p.Name}</h2>
+          <p>Description: {p.Description}</p>
+          <p>Maximum quantity: {p.MaximumQuantity ?? "Not specified"}</p>
+          <p>Price: {`${p.UnitPrice * rateMultipler} ${currentRate}`}</p>
+        </div>
+      );
+    });
+  }
+
+  function renderRateOptions() {
+    if (rateError) {
+      return (
+        <p>Error found while trying to load rate data. Please try again</p>
+      );
+    }
+
+    if (rateDataLoading) {
+      return <p>Rate data is loading...</p>;
+    }
+
+    const options = [...new Set(rateData?.map((r) => r.SourceCurrency))];
+    return options
+      .filter((rate) => rate !== currentRate)
+      .map((rate: Currency) => {
+        return <button onClick={() => handleRateUpdate(rate)}>{rate}</button>;
+      });
+  }
+
+  function handleRateUpdate(targetRate: Currency) {
+    const sourceRate = currentRate;
+    const rate = rateData?.find(
+      (r) => r.SourceCurrency === sourceRate && r.TargetCurrency === targetRate
+    );
+
+    if (rate === undefined) {
+      throw Error("Rate data is not found. Please reload browser.");
+    }
+
+    setRateMultipler(rate.Rate);
+    setCurrentRate(targetRate);
+  }
 
   return (
     <div>
       <header className="header default-bg-color header-color">
         <p>CityFM</p>
-        <button>{currency}</button>
+        <div>
+          <button>{currentRate}</button>
+        </div>
       </header>
       <body>
-        <p>Body stuff stuff</p>
+        <section className="product">
+          <h1>Products Available</h1>
+          {renderProductData()}
+        </section>
       </body>
+      <footer className="footer default-bg-color header-color">
+        <p>Change currency to:</p>
+        <div>{renderRateOptions()}</div>
+      </footer>
     </div>
   );
 }

@@ -15,7 +15,9 @@
   background-color: #282c34;
 }
 
-header {
+header,
+body .error,
+footer {
   display: flex;
   justify-items: center;
   align-items: center;
@@ -23,13 +25,15 @@ header {
   flex-direction: row;
 }
 
-.header {
+.header,
+.footer {
   padding: 0.5em;
   min-height: 5vh;
   font-size: 30px;
 }
 
-.header button {
+.header button,
+.footer button {
   cursor: pointer;
   background: none;
   color: inherit;
@@ -37,4 +41,12 @@ header {
   padding: 5px;
   border-radius: 10px;
   font-size: 30px;
+}
+
+body .product {
+  padding: 1em;
+}
+
+body .product div {
+  padding-top: 1em;
 }

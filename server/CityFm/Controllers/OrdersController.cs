@@ -79,6 +79,9 @@ public class OrdersController : ControllerBase
         foreach (var productOrder in ordersRequest)
         {
             var productInformation = products.First(p => p.ProductId == productOrder.ProductId);
+
+            if (productInformation.MaximumQuantity is null) continue;
+
             var isProductOrderCountOverMax = productOrder.Quantity > productInformation.MaximumQuantity;
             if (isProductOrderCountOverMax)
                 throw new ArgumentException("Order quantity is over the available maximum limit of product available");
