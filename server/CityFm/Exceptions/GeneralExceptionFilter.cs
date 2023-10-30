@@ -11,7 +11,7 @@ public class GeneralExceptionFilter : IExceptionFilter
 
         switch (context.Exception)
         {
-            case ExternalApiException:
+            case ExternalApiException or HttpRequestException:
                 error.StatusCode = StatusCodes.Status500InternalServerError;
                 error.Message = $"An internal service error has occurred: {context.Exception.Message}";
 

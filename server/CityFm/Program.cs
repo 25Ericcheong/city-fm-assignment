@@ -21,6 +21,14 @@ builder.Services.AddHttpClient(ClientKeys.AllTheCloudsProductFxRate, client =>
     client.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
 });
 
+builder.Services.AddHttpClient(ClientKeys.AllTheCloudsOrder, client =>
+{
+    client.BaseAddress = new Uri(ExternalUri.AllTheClouds);
+    client.DefaultRequestHeaders.Add("accept", ContentType.Json);
+    client.DefaultRequestHeaders.Add("Content-Type", ContentType.Json);
+    client.DefaultRequestHeaders.Add("api-key", settings.AllTheClouds.ApiKey);
+});
+
 builder.Services.AddTransient<IProductsService, ProductsService>();
 builder.Services.AddTransient<IFxRatesService, FxRatesService>();
 

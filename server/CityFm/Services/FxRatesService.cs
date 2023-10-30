@@ -1,6 +1,5 @@
 using CityFm.Domain;
 using CityFm.Models.Static.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CityFm.Services;
 
@@ -13,7 +12,6 @@ public class FxRatesService : IFxRatesService
         _httpClientFactory = httpClientFactory;
     }
 
-    [HttpGet]
     public async Task<List<FxRate>?> GetFxRates()
     {
         var httpClient = _httpClientFactory.CreateClient(ClientKeys.AllTheCloudsProductFxRate);

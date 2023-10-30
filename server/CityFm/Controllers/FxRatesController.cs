@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using CityFm.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,7 @@ namespace CityFm.Controllers;
 
 [ApiController]
 [EnableCors("CorsPolicy")]
-[Produces("application/json")]
+[Produces(MediaTypeNames.Application.Json)]
 [Route("/api/fx-rates")]
 public class FxRatesController : ControllerBase
 {

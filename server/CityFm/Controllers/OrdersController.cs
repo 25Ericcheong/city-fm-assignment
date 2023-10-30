@@ -15,15 +15,20 @@ public class OrdersController : ControllerBase
 {
     private const int MaximumProductQuantity = 2147483647;
     private const int MinimumProductQuantity = 0;
+    private readonly IOrdersService _ordersService;
     private readonly IProductsService _productsService;
 
-    public OrdersController(IProductsService productsService)
+    public OrdersController(IProductsService productsService, IOrdersService ordersService)
     {
         _productsService = productsService;
+        _ordersService = ordersService;
     }
 
     [HttpPost]
-    public async Task<HttpResponseMessage> CreateOrders([FromBody] OrderDTO order)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> CreateOrders([FromBody] OrderDTO order)
     {
         if (order is null) throw new ArgumentNullException(null, "Entire order request data is missing");
 
@@ -42,7 +47,19 @@ public class OrdersController : ControllerBase
         ValidateCustomerData(customerData);
         ValidateProductOrdersData(ordersData, products);
 
-        return new HttpResponseMessage();
+        await _ordersService.SubmitOrder(new Order
+        {
+            CustomerName = customerData.Name,
+            CustomerEmail = customerData.Email,
+            LineItems = ordersData.Select(o => new OrderLineItem
+                {
+                    ProductId = o.ProductId,
+                    Quantity = o.Quantity
+                }
+            ).ToArray()
+        });
+
+        return Ok();
     }
 
     public void ValidateProductOrdersData(OrderItemDTO[] ordersRequest, List<Product> products)
