@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { routes } from "./config";
+import { Currency } from "./Currency";
+
+interface Product {
+  ProductId: string;
+}
 
 function App() {
+  const [currency, setCurrency] = useState(Currency.AUD);
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
@@ -23,8 +29,9 @@ function App() {
 
   return (
     <div>
-      <header className="header default-bg-color s">
-        <p className="header-color">CityFM</p>
+      <header className="header default-bg-color header-color">
+        <p>CityFM</p>
+        <button>{currency}</button>
       </header>
       <body>
         <p>Body stuff stuff</p>
