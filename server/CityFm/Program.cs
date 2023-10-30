@@ -31,6 +31,7 @@ builder.Services.AddHttpClient(ClientKeys.AllTheCloudsOrder, client =>
 
 builder.Services.AddTransient<IProductsService, ProductsService>();
 builder.Services.AddTransient<IFxRatesService, FxRatesService>();
+builder.Services.AddTransient<IOrdersService, OrdersService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
